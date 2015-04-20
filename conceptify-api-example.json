@@ -12,8 +12,7 @@
   	},
   	
   	"dependencies": {
-  		"test-concept-domain" : "0.0.0",
-  		"test-model-domain" : "0.0.0"
+  		"conceptify-examples" : "https://github.com/mikkelfish/conceptify-examples.git"
   	},
 
   	"domains" : {
@@ -35,7 +34,7 @@
 		  			},
 		  			"models" : {
 		  				"test-model" : "test-model-domain#/models/test-model",
-		  				"test-model2" : "test-model-domain#/models/test-model2",
+		  				"test-model2" : "test-model-domain#/models/test-model2"
 		  			},
 		  			"read": ["all"],
 		  			"create": ["all"],
