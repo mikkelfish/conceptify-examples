@@ -12,8 +12,7 @@
   	},
   	
   	"dependencies": {
-  		//"dependent-domain/*" : "version",
-  		//"dependent-domain/concept" : "version"
+  		
   	},
 
   	"domains" : {
@@ -21,10 +20,9 @@
   			"concepts": {
 				"test": {
 					"description" : "A test description",
-					"type" : "string", //string, integer, number, boolean, date, object
+					"type" : "string",
 					"default" : "default value",
 					"validators" : {
-						//refer to target framework for full list of validations, or create your own
 						"min-max-length" : {
 							"options" : {
 								"min" : 1,
@@ -43,9 +41,8 @@
 					"description" : "A test array",
 					"type" : [{
 						"$ref" : "#/concepts/test"
-					}], //or any built in type like "type:" ["string"]
+					}], 
 					"validators" : {
-						//refer to target framework for full list of validations
 						"min-max-length" : {
 							"options" : {
 								"min" : 1,
@@ -84,7 +81,7 @@
 		 			"description" : "Compute whether a string is long",
 		 			"output":"#/concepts/long-string",
 		 			"parameters" : {
-		 				"input-string" : "string" //may be either a type or a concept
+		 				"input-string" : "string"
 		 			}
 		 		}
 

@@ -11,8 +11,7 @@
   	},
   	
   	"dependencies": {
-  		"test-concept-domain" : "0.0.0",
-  		//"dependent-domain/concept" : "version"
+  		"test-concept-domain" : "0.0.0"
   	},
 	
 
@@ -53,9 +52,8 @@
 
 					"links" : {
 						"link-1" : {
-							"type" : "one", //one, many
+							"type" : "one",
 							"target" : "#/models/test-model"
-							//"inverse" : "name"
 						}
 					},
 				}
