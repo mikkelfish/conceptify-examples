@@ -1,0 +1,48 @@
+{
+	"domain": "test-model-domain",
+	"version": "0.0.0",
+	
+	"repository":"hosted-url",
+	
+	"description": "test models",
+	"author": {
+	    "name": "Your name",
+	    "email": "Your email",
+	    "url": "https://github.com/testuser"
+  	},
+  	
+  	"dependencies": {
+  		"test-concept-domain" : "0.0.0",
+  		"test-model-domain" : "0.0.0"
+  	},
+
+  	"domains" : {
+  		"test-model-domain" : {
+  			"service_points" : {
+		  		"test" : {
+		  			"description": "test description",
+		  			"route" : "/", //can set the base route
+		  			"inputs" : {
+		  				"arg1": {
+		  					"type": "test-model-domain#/models/test-model2",
+		  					"description" : "arg description"
+		  				}
+		  			},
+		  			"output" : {
+		  				"type": "test-model-domain#/models/test-model",
+		  				"description" : "output description",
+		  				"side-effects" : "description of side effects"
+		  			},
+		  			"models" : {
+		  				"test-model" : "test-model-domain#/models/test-model",
+		  				"test-model2" : "test-model-domain#/models/test-model2",
+		  			},
+		  			"read": ["all"],
+		  			"create": ["all"],
+		  			"update": ["users"],
+		  			"delete": ["self"] //self means it has to belong to the validated user
+		  		}
+		  	}
+  		}
+  	}
+ }

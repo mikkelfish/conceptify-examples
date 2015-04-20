@@ -1,0 +1,98 @@
+{
+	"domain": "test-domain",
+	"version": "0.0.0",
+	
+	"repository":"hosted-url",
+	
+	"description": "test concepts",
+	"author": {
+	    "name": "Your name",
+	    "email": "Your email",
+	    "url": "https://github.com/testuser"
+  	},
+  	
+  	"dependencies": {
+  		//"dependent-domain/*" : "version",
+  		//"dependent-domain/concept" : "version"
+  	},
+
+  	"domains" : {
+  		"test-concept-domain" : {
+  			"concepts": {
+				"test": {
+					"description" : "A test description",
+					"type" : "string", //string, integer, number, boolean, date, object
+					"default" : "default value",
+					"validators" : {
+						//refer to target framework for full list of validations, or create your own
+						"min-max-length" : {
+							"options" : {
+								"min" : 1,
+								"max" : 10
+							}
+						}
+					}
+		 		},
+
+		 		"long-string" : {
+		 			"description" : "Whether a string is long",
+		 			"type" : "boolean"
+		 		},
+
+		 		"test-array": {
+					"description" : "A test array",
+					"type" : [{
+						"$ref" : "#/concepts/test"
+					}], //or any built in type like "type:" ["string"]
+					"validators" : {
+						//refer to target framework for full list of validations
+						"min-max-length" : {
+							"options" : {
+								"min" : 1,
+								"max" : 10
+							}
+						}
+					}
+		 		},
+		 		
+		 		"complex-test": {
+		 			"description" : "A complex object",
+		 			"type": "object",
+		 			"properties": {
+		 				"test-1" : {"$ref":"#/concepts/test"},
+		 				"test-2" : {"$ref":"#/concepts/test"},
+		 			}
+		 		},
+
+		 		"complex-test-2": {
+		 			"description" : "A subclassed complex object",
+		 			"type": "object",
+		 			"properties": {
+		 				"test-1" : {"$ref":"#/concepts/test"},
+		 				"test-2" : {"$ref":"#/concepts/test"},
+		 			},
+		 			"relationship-parents": [
+		 				{"$ref" : "#/concepts/complex-test"}
+		 			]
+		 		},
+
+		 		
+			},
+
+			"methods": {
+				"long-string" : {
+		 			"description" : "Compute whether a string is long",
+		 			"output":"#/concepts/long-string",
+		 			"parameters" : {
+		 				"input-string" : "string" //may be either a type or a concept
+		 			}
+		 		}
+
+			}
+  		}
+  	},
+
+	"license": "MIT"
+
+
+}

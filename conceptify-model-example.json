@@ -1,0 +1,68 @@
+{
+	
+	"version": "0.0.0",
+	
+	"repository":"hosted-url",
+	"description": "test models",
+	"author": {
+	    "name": "Your name",
+	    "email": "Your email",
+	    "url": "https://github.com/testuser"
+  	},
+  	
+  	"dependencies": {
+  		"test-concept-domain" : "0.0.0",
+  		//"dependent-domain/concept" : "version"
+  	},
+	
+
+	"domains": {
+		"test-model-domain" : {
+			"models" : {
+				"test-model" : {
+					"properties" : {
+						"name" : "test-concept-domain#/concepts/test",
+						"description": "test-concept-domain#/concepts/test",
+						"data" : "test-concept-domain#/concepts/complex-test" 
+					},
+
+					"computed-properties": {
+						"has_long_name" : {
+							"method": "test-concept-domain#/methods/long-string",
+							"inputs": {
+								"input-string" : "name"
+							} 
+						}
+					},
+
+					"methods" : {
+				 		"instance-method" : {
+				 			"description" : "An instance method",
+				 			"output":"#/concepts/complex-test",
+				 			"parameters" : {
+				 				"input" : "test-concept-domain#/concepts/test" 
+				 			}
+				 		}
+					}
+				},
+
+				"test-model-2" : {
+					"properties" : {
+						"name" : "test-concept-domain#/concepts/test"
+					},
+
+					"links" : {
+						"link-1" : {
+							"type" : "one", //one, many
+							"target" : "#/models/test-model"
+							//"inverse" : "name"
+						}
+					},
+				}
+			}
+		}
+	}
+
+	
+
+}
